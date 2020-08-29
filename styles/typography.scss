@@ -16,14 +16,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size: 4rem;
-}
-h1, h2, h3, h4, h5, h6, p, a, li {
-  margin: 0;
-  font-size: 4rem;
-  font-family: helvetica, sans-serif;
-  font-weight: 600;
+  font-family: 'times new roman', sans-serif;
   letter-spacing: -0.1rem;
   line-height: 1em;
+}
+h1, h2, h3, h4, h5, h6, p, li {
+  margin: 0;
+  font-size: 4rem;
 }
 h1, h2, h3, h4 {
   margin: 1em 1em;

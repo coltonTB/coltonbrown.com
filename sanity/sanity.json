@@ -1,18 +1,19 @@
 {
   "root": true,
-  "project": {
-    "name": "9mr"
-  },
   "api": {
-    "projectId": "oju94hgj",
+    "projectId": "gcqfpt7p",
     "dataset": "production"
+  },
+  "project": {
+    "name": "coltonbrown.com"
   },
   "plugins": [
     "@sanity/base",
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
-    "@sanity/desk-tool"
+    "@sanity/desk-tool",
+    "@sanity/google-maps-input"
   ],
   "env": {
     "development": {

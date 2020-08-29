@@ -11,85 +11,98 @@ import sanity from '../lib/sanity'
 
 import "../styles/styles.scss"
 
+const projects = [
+  {
+    title: '9 Million Reasons',
+    role: 'development',
+    link: 'http://9millionreasons.nyc',
+    year: 2020,
+    color: 'red'
+  }, {
+    title: 'Volley Studio',
+    role: 'design + development',
+    link: 'https://new.volleystudio.us',
+    year: 2019,
+    color: 'blue'
+  }, {
+    title: 'Blueland',
+    role: 'development',
+    collaborator: {
+      name: 'The Couch',
+      url: 'https://thecouch.nyc'
+    },
+    link: 'https://www.blueland.com',
+    year: 2019,
+    color: 'red'
+  }, {
+    title: 'Fey Arts',
+    role: 'design + development',
+    year: 2019,
+    link: "https://fey-arts.com/"
+  }, {
+    title: 'OOO',
+    role: 'development',
+    year: 2018,
+    collaborator: {
+      name: 'For Good Measure',
+      url: 'http://forgoodmeasure.us'
+    }
+  }
+]
+
 export default class Home extends React.Component {
 
   static async getInitialProps({ req }) {
-    const globals = await sanity.fetch(globalQuery);
-    const activeSlug = req.url.replace("/", "") || null;
-    return {
-      globals,
-      activeSlug
-    }
-  }
-
-  getPageContent = () => {
-    try {
-      return this.props.content.find( item => get(item, 'page_slug.current') == this.props.activeSlug)
-    } catch (e) {
-      console.log(e)
-    }
+    return {}
   }
 
   render() {
-    const globals = get(this.props, 'globals.0' ) || {}
     return (
       <Layout
         activeSlug={ null }
-        globals={ globals }
+        globals={ {} }
       >
-          <Background images={ globals.homepage_background_images }/>
-          <nav>
-            <p className="color--white">
-              9&nbsp;<br/>
-              Million&nbsp;<br/>
-              Reasons&nbsp;<br/>
-            </p>
-          </nav>
-          <div className="content-main">
-            <div className={ classnames('module') }>
-              <div className="row">
-                <div className="col col-1">
-                  <p className="home-description">
-                    { globals.homepage_description }
-                  </p>
-                </div>
-              </div>
-              <div className="homepage-special-rows">
-                <div className="row">
-                  <div className="col col-2">
-                    <p>{ globals.homepage_section_1 }</p>
-                  </div>
-                  <div className="col col-1">
-                    <ul>
-                      <li><a href="/volunteer">Volunteer</a></li>
-                      <li><a href="/donate">Donate</a></li>
-                      <li><a href="/share">Share</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col col-2">
-                    <p>{ globals.homepage_section_2 }</p>
-                  </div>
-                  <div className="col col-1">
-                    <ul>
-                      <li><a href="/food">Get Food</a></li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="row">
-                  <div className="col col-2">
-                    <p>{ globals.homepage_section_3 }</p>
-                  </div>
-                  <div className="col col-1">
-                    <ul>
-                      <li><a href="/about">About</a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
+        <div className="home">
+          <div className="header">
+            <div>
+              <a href="https://colton.website">👨🏻‍💻</a>
+              &nbsp;
+              Colton Brown
+            </div>
+            <div>
+              <i>Freelance Web Developer</i>
             </div>
           </div>
+          {
+            projects.map( project => (
+              <div className={`project ${ 'red' }`}>
+                <div className="project__title">{ project.title }</div>
+                <div className="project__details italic">
+                  <div className="project__role">{ project.role }</div>
+                  {
+                    project.collaborator ? (
+                      <div className="project__collaborator">
+                        <span>with </span>
+                        <a href={ project.collaborator.url } target="_blank">
+                          { project.collaborator.name }
+                        </a>
+                      </div>
+                    ) : ''
+                  }
+                </div>
+                <div className="project__year">
+                  { project.year }
+                </div>
+                <div className="project__link">
+                  <a href={ project.link } target="_blank ">
+                    🌎
+                  </a>
+                </div>
+              </div>
+            ))
+          }
+
+        </div>
       </Layout>
     )
   }
