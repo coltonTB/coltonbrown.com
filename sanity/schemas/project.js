@@ -19,6 +19,10 @@ export default {
       title: 'URL',
       type: 'string'
     }, {
+      name: 'slug',
+      title: 'Slug',
+      type: 'slug'
+    }, {
       name: 'collaborator',
       title: 'Collaborator',
       type: 'object',
@@ -34,9 +38,12 @@ export default {
         }
       ]
     }, {
-      name: 'year',
-      title: 'Year',
-      type: 'string'
+      name: 'date',
+      title: 'Date',
+      type: 'date',
+      options: {
+        dateFormat: 'LL'
+      }
     }
   ]
 }

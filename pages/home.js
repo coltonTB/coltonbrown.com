@@ -5,55 +5,20 @@ import classnames from 'classnames'
 
 import Background from '../components/background.js'
 import Nav from '../components/nav.js'
-import { globalQuery } from '../lib/queries'
+import { projectsQuery } from '../lib/queries'
 import Layout from '../components/layout'
 import sanity from '../lib/sanity'
 
 import "../styles/styles.scss"
 
-const projects = [
-  {
-    title: '9 Million Reasons',
-    role: 'development',
-    link: 'http://9millionreasons.nyc',
-    year: 2020,
-    color: 'red'
-  }, {
-    title: 'Volley Studio',
-    role: 'design + development',
-    link: 'https://new.volleystudio.us',
-    year: 2019,
-    color: 'blue'
-  }, {
-    title: 'Blueland',
-    role: 'development',
-    collaborator: {
-      name: 'The Couch',
-      url: 'https://thecouch.nyc'
-    },
-    link: 'https://www.blueland.com',
-    year: 2019,
-    color: 'red'
-  }, {
-    title: 'Fey Arts',
-    role: 'design + development',
-    year: 2019,
-    link: "https://fey-arts.com/"
-  }, {
-    title: 'OOO',
-    role: 'development',
-    year: 2018,
-    collaborator: {
-      name: 'For Good Measure',
-      url: 'http://forgoodmeasure.us'
-    }
-  }
-]
 
 export default class Home extends React.Component {
 
   static async getInitialProps({ req }) {
-    return {}
+    const projects = await sanity.fetch(projectsQuery)
+    return {
+      projects
+    }
   }
 
   render() {
@@ -74,8 +39,8 @@ export default class Home extends React.Component {
             </div>
           </div>
           {
-            projects.map( project => (
-              <div className={`project ${ 'red' }`}>
+            this.props.projects.map( project => (
+              <div className={`project ${ 'red' }`} key={ project._id }>
                 <div className="project__title">{ project.title }</div>
                 <div className="project__details italic">
                   <div className="project__role">{ project.role }</div>
@@ -91,13 +56,26 @@ export default class Home extends React.Component {
                   }
                 </div>
                 <div className="project__year">
-                  { project.year }
+                  { project.date ? project.date.replace(/-\d\d-\d\d$/, '') : '' }
                 </div>
-                <div className="project__link">
-                  <a href={ project.link } target="_blank ">
-                    🌎
-                  </a>
-                </div>
+                {
+                  project.link ? (
+                    <div className="project__link">
+                      <a href={ project.link } target="_blank ">
+                        🌎
+                      </a>
+                    </div>
+                  ) : ''
+                }
+                {
+                  project.slug ? (
+                    <div className="project__link">
+                      <a href={ project.slug.current }>
+                        🗒
+                      </a>
+                    </div>
+                  ) : ''
+                }
               </div>
             ))
           }

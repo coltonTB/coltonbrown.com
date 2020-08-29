@@ -1,14 +1,11 @@
 html {
   font-size: 10px;
   color: var(--black-ln);
-  @media (max-width: $break_lg) {
+  @media (max-width: $break_med) {
     font-size: 8px;
   }
-  @media (max-width: $break_med) {
-    font-size: 7px;
-  }
   @media (max-width: $break_sm) {
-    font-size: 5px;
+    font-size: 6px;
   }
 }
 body {
@@ -18,7 +15,7 @@ body {
   font-size: 4rem;
   font-family: 'times new roman', sans-serif;
   letter-spacing: -0.1rem;
-  line-height: 1em;
+  line-height: 1.2em;
 }
 h1, h2, h3, h4, h5, h6, p, li {
   margin: 0;

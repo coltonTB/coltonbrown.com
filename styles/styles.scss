@@ -1,7 +1,7 @@
 $break_xl: 1500px;
 $break_lg: 1250px;
-$break_med: 950px;
-$break_sm: 700px;
+$break_med: 750px;
+$break_sm: 450px;
 $ease: cubic-bezier(0.23, 1, 0.32, 1);
 $timing_contenttransition: 400ms;
 $delay_contenttransition: 100ms;
@@ -27,10 +27,14 @@ input, button, textarea {
 #main {
   height: 100vh;
   width: 100vw;
+  background: #fffef6;
 }
 
 .home {
   padding: 3rem;
+  @media( max-width: $break_sm ) {
+    padding: 1.5rem;
+  }
 }
 .red {
   color: red;
@@ -52,6 +56,9 @@ input, button, textarea {
   justify-content: space-between;
   color: red;
   border-radius: 3px;
+  @media( max-width: $break_sm ) {
+    display: block;
+  }
   img {
     width: 1em;
   }
@@ -85,14 +92,25 @@ input, button, textarea {
     font-size: 0.4em;
     line-height: 1;
     letter-spacing: 0;
+    @media( max-width: $break_sm ) {
+      display: none;
+    }
+  }
+  &__year {
+    @media( max-width: $break_sm ) {
+      display: none;
+    }
   }
   &__year, &__link {
     float: right;
   }
   &__link a {
-    padding: 0 2rem;
+    padding-right: 2rem;
     margin-bottom: 0.2rem;
     font-size: 0.8em;
+    @media( max-width: $break_sm ) {
+      font-size: 1em;
+    }
   }
   &__collaborator a {
     text-transform: lowercase;
