@@ -6,7 +6,7 @@ import classnames from 'classnames'
 import Background from '../components/background.js'
 import Nav from '../components/nav.js'
 import { projectsQuery } from '../lib/queries'
-import Layout from '../components/layout'
+import Layout from '../components/layout.js'
 import sanity from '../lib/sanity'
 
 import "../styles/styles.scss"
