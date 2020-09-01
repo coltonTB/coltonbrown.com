@@ -139,7 +139,7 @@ input, button, textarea {
     line-height: 1;
     letter-spacing: 0;
     @media( max-width: $break_sm ) {
-      display: none;
+      // display: none;
     }
   }
   &__year {
