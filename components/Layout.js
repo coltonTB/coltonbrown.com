@@ -1,7 +1,6 @@
 import classname from 'classnames';
 import Head from 'next/head';
 import { get } from 'dotty';
-import Nav from './nav.js';
 
 import {
   TRANSITION_ENTERING,
