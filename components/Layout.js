@@ -89,10 +89,7 @@ export default class Layout extends React.Component {
         </Head>
         <div
           id="main"
-          className={classname({
-            'content--homepage': !this.props.activeSlug,
-            'content--pages': this.props.activeSlug
-          })}
+          className="red"
         >
           <div className="content-container">
             { this.props.children }

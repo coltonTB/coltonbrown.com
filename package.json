@@ -1,5 +1,5 @@
 {
-  "name": "9mr",
+  "name": "coltonbrown.com",
   "version": "1.0.0",
   "author": "colton@coltonbrown.com",
   "private": true,
@@ -44,5 +44,9 @@
   "bugs": {
     "url": "https://github.com/sanity-io/example-frontend-next-js/issues"
   },
-  "homepage": "https://github.com/sanity-io/example-frontend-next-js#readme"
+  "homepage": "https://github.com/sanity-io/example-frontend-next-js#readme",
+  "description": "",
+  "directories": {
+    "lib": "lib"
+  }
 }

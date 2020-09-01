@@ -27,11 +27,32 @@ input, button, textarea {
 #main {
   height: 100vh;
   width: 100vw;
-  background: #fffef6;
+  background: #fffef9;
+  color: black;
+  overflow: hidden;
+  &.red {
+    // background: url(/otis-redding.png), #fffcef;
+    background-size: auto, auto;
+    color: red;
+    background-size: 120px;
+  }
+  &.grass {
+    color: #fff;
+    background: url('/grass01.jpg');
+    background-size: 450px;
+  }
+  &.water {
+    color: #fff;
+    background: url('/water.jpg');
+    background-size: 200px;
+  }
 }
 
 .home {
   padding: 3rem;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
   @media( max-width: $break_sm ) {
     padding: 1.5rem;
   }
@@ -49,12 +70,10 @@ input, button, textarea {
 }
 
 .header {
-  padding: 0 0.4rem;
-  padding-bottom: 6em;
+  // padding-bottom: 5em;
   display: flex;
   width: 100%;
   justify-content: space-between;
-  color: red;
   border-radius: 3px;
   @media( max-width: $break_sm ) {
     display: block;
@@ -73,9 +92,36 @@ input, button, textarea {
   font-size: 0.5em
 }
 
+.nav {
+  display: none;
+  font-size: 0.8em;
+  height: 1em;
+  .next {
+    float: right;
+  }
+  .prev {
+    float: left;
+  }
+  a:hover {
+    font-weight: bold
+  }
+}
+.scroll-hider {
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+.projects {
+  overflow: scroll;
+  padding-top: 5em;
+  padding-bottom: 3em;
+  padding-right: 30px;
+  width: 100%;
+  box-sizing: content-box;
+}
+
 .project {
   font-size: 4rem;
-  padding: 0 0.4rem;
   margin-bottom: 2.4rem;
   width: 100%;
   justify-content: space-between;
@@ -110,6 +156,9 @@ input, button, textarea {
     font-size: 0.8em;
     @media( max-width: $break_sm ) {
       font-size: 1em;
+    }
+    img {
+      height: 1em;
     }
   }
   &__collaborator a {
