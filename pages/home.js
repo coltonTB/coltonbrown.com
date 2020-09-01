@@ -11,6 +11,12 @@ import sanity from '../lib/sanity'
 
 import "../styles/styles.scss"
 
+const globals = {
+  page_title: '✌⊂(✰‿✰)つ✌',
+  page_description: 'Freelance Web Developer',
+  page_url: 'https://coltonbrown.com',
+  gid: 'UA-93943838-1'
+}
 
 export default class Home extends React.Component {
 
@@ -24,11 +30,10 @@ export default class Home extends React.Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <Layout
         activeSlug={ null }
-        globals={ {} }
+        globals={ globals }
       >
         <div className="home">
           <div className="header">
