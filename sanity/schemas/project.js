@@ -44,6 +44,11 @@ export default {
       options: {
         dateFormat: 'LL'
       }
+    }, {
+      name: 'hidden',
+      title: 'Hide',
+      type: 'boolean',
+      default: false
     }
   ]
 }

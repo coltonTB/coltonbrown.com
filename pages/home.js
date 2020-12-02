@@ -10,7 +10,7 @@ import sanity from '../lib/sanity'
 import "../styles/styles.scss"
 
 const globals = {
-  page_title: '✌⊂(✰‿✰)つ✌',
+  page_title: 'colton brown',
   page_description: 'Freelance Web Developer',
   page_url: 'https://coltonbrown.com',
   gid: 'UA-93943838-1'
@@ -40,10 +40,10 @@ export default class Home extends React.Component {
                 <img src="/male-technologist.png" />
               </a>
               &nbsp;
-              <a href="/">Colton Brown</a>
+              <a href="https://colton.website">Colton Brown</a>
             </div>
             <div>
-              <i>Freelance Web Developer</i>
+              <i>Freelance Projects</i>
             </div>
           </div>
           <div className="scroll-hider">
@@ -51,7 +51,9 @@ export default class Home extends React.Component {
               {
                 this.props.projects.map( project => (
                   <div className="project" key={ project._id }>
-                    <div className="project__title">{ project.title }</div>
+                    <a href={ project.link }>
+                      <div className="project__title">{ project.title }</div>
+                    </a>
                     <div className="project__details italic">
                       <div className="project__role">{ project.role }</div>
                       {
